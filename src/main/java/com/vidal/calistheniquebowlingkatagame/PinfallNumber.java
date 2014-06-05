@@ -30,8 +30,6 @@ public class PinfallNumber {
 
     @Override
     public String toString() {
-        return "PinfallNumber{" +
-                "pinfall=" + pinfall +
-                '}';
+        return String.valueOf(pinfall);
     }
 }

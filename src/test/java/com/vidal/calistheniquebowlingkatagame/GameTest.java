@@ -1,6 +1,6 @@
 package com.vidal.calistheniquebowlingkatagame;
 
-import org.junit.Ignore;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,13 +29,21 @@ public class GameTest {
         assertThat(twoRollGame.score()).isEqualTo(new Score(new PinfallNumber(3)));
     }
 
-    @Ignore
     @Test
     public void should_count_spare() {
         Game spareGame = game.roll(new PinfallNumber(6))
                 .roll(new PinfallNumber(4))
                 .roll(new PinfallNumber(1));
 
-        assertThat(spareGame.score()).isEqualTo(new Score(new PinfallNumber(12)));
+        assertThat(spareGame.score()).isEqualTo(new Score(new PinfallNumber(((6 + 4) + 1) + 1)));
+    }
+
+    @Test
+    public void should_count_strike() {
+        Game spareGame = game.roll(new PinfallNumber(10))
+                .roll(new PinfallNumber(1))
+                .roll(new PinfallNumber(2));
+
+        assertThat(spareGame.score()).isEqualTo(new Score(new PinfallNumber(((10) + (1 + 2)) + (1 + 2))));
     }
 }

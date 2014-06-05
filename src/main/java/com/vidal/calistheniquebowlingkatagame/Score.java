@@ -7,7 +7,7 @@ public class Score {
         this.pinfallNumber = pinfallNumber;
     }
 
-    public Score(PinfallNumber pinfall, Score score) {
+    public Score(Score score, PinfallNumber pinfall) {
         pinfallNumber = new PinfallNumber(pinfall, score.pinfallNumber);
     }
 
@@ -31,8 +31,6 @@ public class Score {
 
     @Override
     public String toString() {
-        return "Score{" +
-                "pinfallNumber=" + pinfallNumber +
-                '}';
+        return pinfallNumber.toString();
     }
 }
